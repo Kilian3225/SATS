@@ -1,115 +1,28 @@
-body
-{
+body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 a:link, a:visited {
     text-decoration: none;
     color: inherit;
 }
+:root {
 
-/*.header {*/
-/*    height: 52px;*/
-/*    position: fixed;*/
-/*    z-index: 2;*/
-/*}*/
-.topNav {
-    height: 52px;
-    border-bottom: 2px solid gainsboro;
-    display: flex;
-    padding: 5px;
-    position: sticky;
-    top: 0px;
-    z-index: 100;
+    --blue1: #F7F7FF;
+    --blue2: #ACACE2;
+    --blue3: #2E2EF0;
+    --blue4: #333392;
+    --blue5: #000047;
 
-}
-.menuSection {
-    position: absolute;
-    /*border: 2px solid blue;*/
-    top: 50%;
-    transform: translateY(-50%);
+    --gray1: #F2F2FF;
+    --gray2: #D7D7E2;
+    --gray3: #B9B9C3;
+    --gray4: #84848B;
+    --gray5: #303033;
 
 
-}
-.logoSection {
-    display: flex;
-    border: 2px solid green;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-
-}
-.subpagesSection {
-    display: none;
-    border: 1px solid purple;
-}
-.logoSection h1{
-    margin: 0;
-}
-
-@media screen and (min-width: 1080px)
-{
-    .subpagesSection
-    {
-        display: flex;
-        position: absolute;
-        /*border: 2px solid blue;*/
-        top: 50%;
-        transform: translateY(-50%);
-
-        align-items: center;
-
-
-
-
-    }
-}
-
-
-
-
-
-.sideNav
-{
-    height: 0px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: sticky;
-    top: 63px;
-    z-index: 100;
-}
-
-header{
-    z-index: 100;
-}
-
-.sideNavSub
-{
-    position: sticky;
-    display: flex;
-    border-bottom: 1px solid gainsboro;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: 62px;
-    font-size: 1.4em;
-}
-
-.sideNavSub:hover
-{
-    cursor: pointer;
-    background-color: gainsboro;
-    transition: 0.3s;
-}
-
-main
-{
-    border: 2px solid red;
 }
 .overlay {
     position: fixed;
@@ -120,24 +33,127 @@ main
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     display: none;
-    z-index: 1;
+    z-index: 99;
 }
 
+
+header {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+}
+.topNav {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 3fr;
+    border-bottom: 2px solid var(--blue2);
+    width: 100%;
+    height: 52px;
+    top: 0px;
+    z-index: 100;
+}
+.menuSection {
+    grid-column: 1 / 2;
+    /*border: 2px solid blue;*/
+    margin-left: 10px;
+    display: flex;
+}
+.logoSection {
+    grid-column: 3 / 4;
+    display: flex;
+    /*border: 2px solid green;*/
+    align-items: center;
+    justify-content: center;
+}
+.logoSection h1{
+    margin: 0;
+}
+.subpagesSection {
+    display: none;
+    align-items: center;
+    justify-content: end;
+    margin-right: 30px;
+    font-size: 1.4rem;
+
+}
+.subpagesSection a {
+    padding-right: 50px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .menuSection
+    {
+        display: none;
+    }
+    .logoSection
+    {
+        grid-column: 1 / 2;
+    }
+    .subpagesSection
+    {
+        display: flex;
+        grid-column: 2 / 5;
+    }
+}
+
+
+.sideNav {
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    top: 63px;
+    z-index: 100;
+}
+.sideNavSub {
+    display: flex;
+    border-bottom: 1px solid var(--blue2);
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 1.4em;
+}
+.sideNavSub:hover {
+    cursor: pointer;
+    background-color: gainsboro;
+    transition: 0.2s;
+}
+
+
+main
+{
+    padding-top: 54px;
+    border: 2px solid red;
+    background-color: var(--blue1);
+}
 header .logo {
     height: 30px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: opacity 0.2s;
 }
-.menuIcon{
-    font-size: 30px;
+header .menuIcon{
+    font-size: 25px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.menuIcon:hover, .logo:hover
-{
+.menuIcon:hover, header .logo:hover {
     opacity: 0.7;
 }
 
 
-
-
+.subHeader{
+    padding: 1em;
+    background: var(--blue2);
+    margin-bottom: 1em;
+    padding-bottom: 3.5em;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 65% 100%, 35% 100%, 0 50%);
+/*    (4px -11px, 100% 0px, 99.89% 56.99%, 567px 99.7%, 302px 326px, 6px 206px);*/
+}
+.subHeader img {
+    height: 250px;
+}
